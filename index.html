@@ -275,12 +275,13 @@
           </div>
         </div>
         
-        <div class="content has-text-justified">
+        <!-- <div class="content has-text-justified">
           <p>
             [TODO] -:?
           </p>
           <br>
-        </div>
+        </div> -->
+        <br><br>
 
         <!-- Prompt Interpolation image -->
         <h3 class="title is-4">(ii) <tt>WiCLP</tt> improves Cross-Attention Masks!</h3>
@@ -326,15 +327,68 @@
           </div>
         </div>
 
-        <div class="content has-text-justified">
+        <!-- <div class="content has-text-justified">
           <p>
             [TODO] :-?
           </p>
           <br>
-        </div>
+        </div> -->
+        <br><br>
 
         <h3 class="title is-4">(iii) <span style="font-variant: small-caps;">Switch-Off</span> enables <tt>WiCLP</tt> to preserve Model Utility</h3>
+        <div class="container is-max-desktop has-text-centered">
+          <div id="results-carousel" class="carousel results-carousel">
+            <div class="item item-t2i1">
+              <img id="myt2i0" src="./static/images/Diversity_d2g0.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i1" src="./static/images/Diversity_turbo0.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i1" src="./static/images/Diversity_lightning0.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i1" src="./static/images/Diversity_d2g1.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i1" src="./static/images/Diversity_turbo1.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i1" src="./static/images/Diversity_lightning1.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i1" src="./static/images/Diversity_d2g2.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i1" src="./static/images/Diversity_turbo2.png"
+              class="interpolation-image"/>
+            </div>
+            <div class="item item-t2i1">
+              <img id="myt2i1" src="./static/images/Diversity_lightning2.png"
+              class="interpolation-image"/>
+            </div>
+          </div>
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Fine-tuning models or adding modules to a base model often results in a degradation of image quality and an increase in the Fréchet Inception Distance (FID) score.
+            To balance the trade-off between improved compositionality and the quality of generated images for clean prompts --an important issue in existing work-- inspired by Hertz et al [1],
+            we adopt <span style="font-variant: small-caps;">Switch-Off</span>, where we apply the linear projection only during the initial steps of inference.
+            More precisely, given a time-step threshold &tau;, for <i>t </i> &geq; &tau;,
+            we use <tt>WiCLP</tt>, while for for <i>t </i> < &tau;,
+            we use the unchanged embedding (output of CLIP text encoder) as the input to the cross-attention layers.
+          </p>
+          <br>
+        </div>
 
+        <br><br>
       </div>
     </div>
 
