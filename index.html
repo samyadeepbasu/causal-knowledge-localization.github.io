@@ -182,7 +182,12 @@
         </div>
         <div class="content has-text-justified">
           <p>
-            XXX
+            we propose <b>Wi</b>ndow-based <b>C</b>ompositional <b>L</b>inear <b>P</b>rojection (<tt>WiCLP</tt>),
+            a <i>lightweight</i> fine-tuning method that significantly improves the model’s performance on compositional prompts, yielding results comparable to existing baselines.
+            <tt>WiCLP</tt> obtains new embedding for tokens in the input text prompt by applying a linear projection on that token in conjunction with a set of its adjacent tokens,
+            i.e., tokens within a specified window.
+            This method, leveraging the linear projection and contextual information from neighboring tokens, 
+            maps the token embedding obtained by CLIP text encoder into embeddings that better describe the compositional scence.
           </p>
           <br>
         </div>
