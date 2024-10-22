@@ -408,11 +408,10 @@
             More precisely, given a time-step threshold &tau;, for <i>t </i> &geq; &tau;,
             we use <tt>WiCLP</tt>, while for for <i>t </i> < &tau;,
             we use the unchanged embedding (output of CLIP text encoder) as the input to the cross-attention layers.
+            As seen above &tau; = 800 provides a correct compositional scene while preserves the quality.
           </p>
           <br>
         </div>
-
-        <br><br>
       </div>
     </div>
 
@@ -472,7 +471,6 @@
             As shown, <tt>WiCLP</tt> significantly improves upon the baselines and
             achieves higher VQA scores compared to other state-of-the-art methods, despite its simplicity.
           </p>
-          <br>
         </div>
       </div>
     </div>
