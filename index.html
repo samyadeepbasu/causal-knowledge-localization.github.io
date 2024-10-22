@@ -397,20 +397,29 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered">Possible Sources of Compositional Issues</h2>
+        <div class="content has-text-justified">
+          <p>
+            We investigate two possible sources of compositionality issues in text-to-image models.
+          </p>
+        </div>
         <!-- Prompt Interpolation image -->
-        <h3 class="title is-4">Errorneous Attention Contributions in CLIP Text Encoder</h3>
+        <h3 class="title is-4">Source (i): Errorneous Attention Contributions in CLIP Text Encoder</h3>
         
         <div class="content has-text-centered">
             <img src="./static/images/attn_cont/attn_cont.jpg" width="100%">
         </div>
         <div class="content has-text-justified">
           <p>
-            We conduct an image reconstruction experiment by directly optimizing a single latent with different loss functions. Reconstruction with <b>LPIPS</b> roughly reproduces the target image, but at the cost of needing to decode into pixels. <b>LatentLPIPS</b> alone cannot precisely reconstruct the image. However, our ensembled augmentation, <b>E-LatentLPIPS</b>, can more precisely reconstruct the target while operating directly in the latent space. 
+            Above Figure visualizes the attention contribution of both T5 and CLIP text-encoder in the last layer &ell; = 11
+            for the prompt "a green bench and a red car".
+            Ideally, the attention mechanism should guide the token "car" to focus more on "red" than "green",
+            but in the last layer of the CLIP text-encoder, "car" significantly attends to "green".
+            In contrast, T5 shows a more consistent attention pattern, with "red" contributing more to the token "car" and "green" contributing more to the token "bench".
           </p>
         </div>
 
         <!-- Prompt Interpolation image -->
-        <h3 class="title is-4">Sub-Optimality of CLIP Text-Encoder</h3>
+        <h3 class="title is-4">Source (ii): Sub-Optimality of CLIP Text-Encoder</h3>
         
         <div class="content has-text-centered">
             <img src="./static/images/Radar_chart_sdxl.png" width="80%">
