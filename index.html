@@ -421,7 +421,7 @@
             we observe that the UNet is capable of generating compositional scenes if propoer text-embeddings is given as the input.
             This proper embedding is obtained by freezing the UNet and optimizing diffusion loss over images with high VQA scores,
             using the text embedding as the optimization variable.
-            We consistently improve VQA scores across a variety of compositional prompts (\ie, color, texture, and shape).
+            We consistently improve VQA scores across a variety of compositional prompts (i.e., color, texture, and shape).
             This indicates that CLIP text-encoder does not output the proper text-embedding suitable for generating compositional scenes.
             However, that optimized embedding space exists, highlighting the ability of UNet to generate coherent compositional scenes when a proper text-embedding is given.
           </p>
@@ -429,23 +429,28 @@
         </div>
 
         <!-- Prompt Interpolation image -->
-        <h3 class="title is-4"><tt>WiCLP</tt> Achieves Superior Compositional Performance on Stable Diffusion Models in T2I-CompBench</h3>
+        <h3 class="title is-4"><tt>WiCLP</tt> Achieves Superior Compositional Performance on Stable Diffusion Models in T2I-CompBench!</h3>
         
         <div class="content has-text-centered">
             <img src="./static/images/experiments/results.png" width="90%">
         </div>
         <div class="content has-text-justified">
+          <p>
+            VQA scores of our method and other discussed baselines are provided in above Table.
+            As shown, <tt>WiCLP</tt> significantly improves upon the baselines and
+            achieves higher VQA scores compared to other state-of-the-art methods, despite its simplicity.
+          </p>
+          <br>
         </div>
-
       </div>
     </div>
   </div>
     
     <br>
     <!--/ Matting. -->
-    <div class="container is-max-desktop">
+    <!-- <div class="container is-max-desktop">
     
-      <!-- Latent space editing applications -->
+      Latent space editing applications
       <div class="columns is-centered">
         <div class="column is-full-width">
           <h2 class="title is-3 has-text-centered">Related Works</h2>
@@ -454,11 +459,11 @@
               <li>Robin Rombach, Andreas Blattmann, Dominik Lorenz, Patrick Esser, and Bjorn Ommer. <a href="https://arxiv.org/abs/2112.10752">High-resolution image synthesis with latent diffusion models.</a> In IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2022.</li><br>
             </p>
           </div>
-          <!-- Prompt Interpolation image -->
+          Prompt Interpolation image
         </div>
       </div>
 
-    <!-- Concurrent Work. -->
+    Concurrent Work.
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered">Acknowledgements</h2>
@@ -469,7 +474,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Concurrent Work. -->
 
   </div>
