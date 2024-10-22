@@ -200,3 +200,8 @@ section.banner {
 .slider-pagination .slider-page {
   background-color: #c2c2c2 !important;
 }
+
+
+.slider-navigation-next, .slider-navigation-previous {
+  top: 43% !important;
+}
