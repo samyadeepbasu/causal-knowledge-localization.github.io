@@ -371,7 +371,7 @@
         <div class="content has-text-justified">
           <p>
             Fine-tuning models or adding modules to a base model often results in a degradation of image quality and an increase in the Fréchet Inception Distance (FID) score.
-            To balance the trade-off between improved compositionality and the quality of generated images for clean prompts --an important issue in existing work-- inspired by Hertz et al [1],
+            To balance the trade-off between improved compositionality and the quality of generated images for clean prompts --an important issue in existing work-- Inspired by Hertz et al <sup><a href="https://arxiv.org/abs/2208.01626" target="_blank">[1]</a></sup>,
             we adopt <span style="font-variant: small-caps;">Switch-Off</span>, where we apply the linear projection only during the initial steps of inference.
             More precisely, given a time-step threshold &tau;, for <i>t </i> &geq; &tau;,
             we use <tt>WiCLP</tt>, while for for <i>t </i> < &tau;,
