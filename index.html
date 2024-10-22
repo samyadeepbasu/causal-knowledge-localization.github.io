@@ -422,11 +422,16 @@
         <h3 class="title is-4">Source (ii): Sub-Optimality of CLIP Text-Encoder</h3>
         
         <div class="content has-text-centered">
-            <img src="./static/images/Radar_chart_sdxl.png" width="80%">
+            <img src="./static/images/opt_text_embedding/opt_text_embedding.png" width="80%">
         </div>
         <div class="content has-text-justified">
           <p>
-            We compare <b>Diffusion2GAN</b> with two concurrent one-step diffusion distillation generators: <b>SDXL-turbo</b> and <b>SDXL-Lightning</b>, as well as their teacher model, <b>SDXL-Base-1.0</b>. Although <b>SDXL-Lightning</b> produces more diverse images compared to <b>Diffusion2GAN</b> and <b>SDXL-Turbo</b>, it does so at the expense of FID and CLIP-score. On the other hand, <b>Diffusion2GAN</b> demonstrates better FID and CLIP-score than <b>SDXL-Turbo</b> and <b>SDXL-Lightning</b> but generates more diverse images compared to <b>SDXL-Turbo</b>.
+            we observe that the UNet is capable of generating compositional scenes if propoer text-embeddings is given as the input.
+            This proper embedding is obtained by freezing the UNet and optimizing diffusion loss over images with high VQA scores,
+            using the text embedding as the optimization variable.
+            We consistently improve VQA scores across a variety of compositional prompts (\ie, color, texture, and shape).
+            This indicates that CLIP text-encoder does not output the proper text-embedding suitable for generating compositional scenes.
+            However, that optimized embedding space exists, highlighting the ability of UNet to generate coherent compositional scenes when a proper text-embedding is given.
           </p>
           <br>
         </div>
