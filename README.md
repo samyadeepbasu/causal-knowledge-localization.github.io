@@ -1,2 +1,2 @@
 # Diffusion2GAN Project page
-This repository contains additional results and website source files for [Diffusion2GAN Project](https://mingukkang.github.io/Diffusion2GAN/).
+This repository contains additional results and website source files for [ٍWiCLP Project](https://github.com/ArmanZarei/Mitigating-T2I-Comp-Issues).
