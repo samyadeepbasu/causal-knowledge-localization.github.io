@@ -1,2 +1,3 @@
-# Diffusion2GAN Project page
-This repository contains additional results and website source files for [ٍWiCLP Project](https://github.com/ArmanZarei/Mitigating-T2I-Comp-Issues).
+# Webpage
+
+This repository contains additional results and website for the paper: On Mechanistic Knowledge Localization in Text-to-Image Generative Models
