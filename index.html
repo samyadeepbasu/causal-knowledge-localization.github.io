@@ -285,7 +285,7 @@
         
         <h3 class="title is-4"><span style="font-variant: small-caps;">LocoGen</span> effectivley identifies important lazers!</h3>
         <div class="content has-text-centered">
-          <img src="./static/images/locogen_localization/locogen.jpg" width="90%">
+          <img src="./static/images/locogen_localization/locogen.jpg" width="100%">
         </div>
         
         <div class="content has-text-justified">
@@ -327,8 +327,9 @@
         </div>
         <br>
 
+
         <!-- Prompt Interpolation image -->
-        <h3 class="title is-4">(ii) <tt>WiCLP</tt> improves Cross-Attention Masks!</h3>
+        <!-- <h3 class="title is-4">(ii) <tt>WiCLP</tt> improves Cross-Attention Masks!</h3>
         
         <div class="container is-max-desktop has-text-centered">
           <div id="results-carousel" class="carousel results-carousel">
@@ -361,7 +362,7 @@
               class="interpolation-image"/>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- <div class="content has-text-justified">
           <p>
@@ -369,9 +370,9 @@
           </p>
           <br>
         </div> -->
-        <br><br>
+        <!-- <br><br> -->
 
-        <h3 class="title is-4">(iii) <span style="font-variant: small-caps;">Switch-Off</span> enables <tt>WiCLP</tt> to preserve Model Utility!</h3>
+        <!-- <h3 class="title is-4">(iii) <span style="font-variant: small-caps;">Switch-Off</span> enables <tt>WiCLP</tt> to preserve Model Utility!</h3>
         <div class="container is-max-desktop has-text-centered">
           <div id="results-carousel" class="carousel results-carousel">
             <div class="item item-t2i1">
@@ -455,7 +456,7 @@
             As seen above, &tau; = 800 provides a correct compositional scene while preserving the quality.
           </p>
           <br>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -463,62 +464,91 @@
     <!-- Latent space editing applications -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Possible Sources of Compositional Issues</h2>
-        <div class="content has-text-justified">
-          <p>
-            We investigate two possible sources of compositionality issues in text-to-image models.
-          </p>
-        </div>
+        <h2 class="title is-3 has-text-centered"><span style="font-variant: small-caps;">LocoEdit</span> effectively edits the model!</h2>
+        
         <!-- Prompt Interpolation image -->
-        <h3 class="title is-4">Source (i): Errorneous Attention Contributions in CLIP Text Encoder</h3>
+        <!-- <h3 class="title is-4">Source (i): Errorneous Attention Contributions in CLIP Text Encoder</h3> -->
         
         <div class="content has-text-centered">
-            <img src="./static/images/attn_cont/attn_cont.jpg" width="100%">
+            <img src="./static/images/locoedit/locoedit.jpg" width="100%">
         </div>
         <div class="content has-text-justified">
-          <p>
-            Above Figure visualizes the attention contribution of both T5 and CLIP text-encoder in the last layer &ell; = 11
-            for the prompt "a green bench and a red car".
-            Ideally, the attention mechanism should guide the token "car" to focus more on "red" than "green",
-            but in the last layer of the CLIP text-encoder, "car" significantly attends to "green".
-            In contrast, T5 shows a more consistent attention pattern, with "red" contributing more to the token "car" and "green" contributing more to the token "bench".
+        <p>
+          <span style="font-variant: small-caps;">LocoGen</span> extracts the set of cross-attention layers that control specific visual attributes (e.g., style).
+          We refer to this set as C_<sub>loc</sub>, a subset of cross-attention layers from which the knowledge about these attributes is influenced.
+          Each layer contains value and key matrices, and the goal is to modify these matrices in a way that transforms the attention mechanism input
+          from an original prompt (such as “A house in the style of Van Gogh”) to a target prompt (such as “A house in the style of a painting”).
+          This adjustment affects how the visual attribute appears in the generated image.
+
           </p>
         </div>
 
         <!-- Prompt Interpolation image -->
-        <h3 class="title is-4">Source (ii): Sub-Optimality of CLIP Text-Encoder</h3>
-        
         <div class="content has-text-centered">
-            <img src="./static/images/opt_text_embedding/opt_text_embedding.png" width="80%">
+            <img src="./static/images/locoedit/formula.png" width="50%">
         </div>
         <div class="content has-text-justified">
           <p>
-            we observe that the UNet is capable of generating compositional scenes if propoer text-embeddings is given as the input.
-            This proper embedding is obtained by freezing the UNet and optimizing diffusion loss over images with high VQA scores,
-            using the text embedding as the optimization variable.
-            We consistently improve VQA scores across a variety of compositional prompts (i.e., color, texture, and shape).
-            This indicates that CLIP text-encoder does not output the proper text-embedding suitable for generating compositional scenes.
-            However, that optimized embedding space exists, highlighting the ability of UNet to generate coherent compositional scenes when a proper text-embedding is given.
+            In fact, we solve the above optimization problem where
+            <ul>
+              <li>X<sub>orig</sub> refers to the text-embeddings of original prompts -- having the artistic style, copyright object, or outdated knowledge;</li>
+              <li>X<sub>target</sub> refers to text-embeddings of target prompts -- including updated knowledge or lacking the visual attribute;</li>
+              <li>W<sub>l</sub><sup>k</sup> that refers to key matrix in localized layer l;</li>
+              <li>
+              <!-- W&#770; -->
+              <span style="position: relative;">W<span style="position: absolute; top: -10px; left: 3px">^</span></span>
+              <sub>l</sub><sup>k</sup> that refers to key matrix in localized layer l.</li>              
+            </ul>
           </p>
           <br>
-        </div>
-
-        <!-- Prompt Interpolation image -->
-        <h3 class="title is-4"><tt>WiCLP</tt> Achieves Superior Compositional Performance on Stable Diffusion Models in T2I-CompBench!</h3>
-        
-        <div class="content has-text-centered">
-            <img src="./static/images/experiments/results.png" width="90%">
-        </div>
-        <div class="content has-text-justified">
-          <p>
-            VQA scores of our method and other discussed baselines are provided in above Table.
-            As shown, <tt>WiCLP</tt> significantly improves upon the baselines and
-            achieves higher VQA scores compared to other state-of-the-art methods, despite its simplicity.
-          </p>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="columns is-centered">
+    <div class="column is-full-width">
+      <h2 class="title is-3 has-text-centered"><span style="font-variant: small-caps;">Zero-Shot Model Editing is Possible!</h2>
+      
+      <!-- Prompt Interpolation image -->
+      <!-- <h3 class="title is-4">Source (i): Errorneous Attention Contributions in CLIP Text Encoder</h3> -->
+      
+      <div class="content has-text-centered">
+          <img src="./static/images/locoedit/locoedit.jpg" width="100%">
+      </div>
+      <div class="content has-text-justified">
+      <p>
+        <span style="font-variant: small-caps;">LocoGen</span> extracts the set of cross-attention layers that control specific visual attributes (e.g., style).
+        We refer to this set as C_<sub>loc</sub>, a subset of cross-attention layers from which the knowledge about these attributes is influenced.
+        Each layer contains value and key matrices, and the goal is to modify these matrices in a way that transforms the attention mechanism input
+        from an original prompt (such as “A house in the style of Van Gogh”) to a target prompt (such as “A house in the style of a painting”).
+        This adjustment affects how the visual attribute appears in the generated image.
+
+        </p>
+      </div>
+
+      <!-- Prompt Interpolation image -->
+      <div class="content has-text-centered">
+          <img src="./static/images/locoedit/formula.png" width="50%">
+      </div>
+      <div class="content has-text-justified">
+        <p>
+          In fact, we solve the above optimization problem where
+          <ul>
+            <li>X<sub>orig</sub> refers to the text-embeddings of original prompts -- having the artistic style, copyright object, or outdated knowledge;</li>
+            <li>X<sub>target</sub> refers to text-embeddings of target prompts -- including updated knowledge or lacking the visual attribute;</li>
+            <li>W<sub>l</sub><sup>k</sup> that refers to key matrix in localized layer l;</li>
+            <li>
+            <!-- W&#770; -->
+            <span style="position: relative;">W<span style="position: absolute; top: -10px; left: 3px">^</span></span>
+            <sub>l</sub><sup>k</sup> that refers to key matrix in localized layer l.</li>              
+          </ul>
+        </p>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
   
     <!--/ Matting. -->
     <!-- <div class="container is-max-desktop">
