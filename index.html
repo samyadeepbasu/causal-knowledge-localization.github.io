@@ -122,6 +122,15 @@
                   </a>
               </span>
               <span class="link-block">
+                <a href="static/slides/poster.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Poster</span>
+                  </a>
+              </span>
+              <span class="link-block">
                 <a href="#bibtex"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
@@ -504,47 +513,25 @@
         </div>
       </div>
     </div>
-  </div>
-
+  
   <div class="columns is-centered">
     <div class="column is-full-width">
-      <h2 class="title is-3 has-text-centered"><span style="font-variant: small-caps;">Zero-Shot Model Editing is Possible!</h2>
+      <h2 class="title is-3 has-text-centered">Zero-Shot Model Editing is Possible!</h2>
       
       <!-- Prompt Interpolation image -->
       <!-- <h3 class="title is-4">Source (i): Errorneous Attention Contributions in CLIP Text Encoder</h3> -->
       
       <div class="content has-text-centered">
-          <img src="./static/images/locoedit/locoedit.jpg" width="100%">
-      </div>
-      <div class="content has-text-justified">
-      <p>
-        <span style="font-variant: small-caps;">LocoGen</span> extracts the set of cross-attention layers that control specific visual attributes (e.g., style).
-        We refer to this set as C_<sub>loc</sub>, a subset of cross-attention layers from which the knowledge about these attributes is influenced.
-        Each layer contains value and key matrices, and the goal is to modify these matrices in a way that transforms the attention mechanism input
-        from an original prompt (such as “A house in the style of Van Gogh”) to a target prompt (such as “A house in the style of a painting”).
-        This adjustment affects how the visual attribute appears in the generated image.
-
-        </p>
-      </div>
-
-      <!-- Prompt Interpolation image -->
-      <div class="content has-text-centered">
-          <img src="./static/images/locoedit/formula.png" width="50%">
+          <img src="./static/images/zero_shot/zero_shot.jpg" width="50%">
       </div>
       <div class="content has-text-justified">
         <p>
-          In fact, we solve the above optimization problem where
-          <ul>
-            <li>X<sub>orig</sub> refers to the text-embeddings of original prompts -- having the artistic style, copyright object, or outdated knowledge;</li>
-            <li>X<sub>target</sub> refers to text-embeddings of target prompts -- including updated knowledge or lacking the visual attribute;</li>
-            <li>W<sub>l</sub><sup>k</sup> that refers to key matrix in localized layer l;</li>
-            <li>
-            <!-- W&#770; -->
-            <span style="position: relative;">W<span style="position: absolute; top: -10px; left: 3px">^</span></span>
-            <sub>l</sub><sup>k</sup> that refers to key matrix in localized layer l.</li>              
-          </ul>
+        As seen in above Figure,
+        neuron-level modification at inference time is effective at removing styles.
+        This shows that knowledge about a particular style can be even more localized to a few neurons.
+        It is noteworthy that the extent of style removal increases with the modification of more neurons, albeit with a trade-off in the quality of generated images.
+        This arises because modified neurons may encapsulate information related to other visual attributes.
         </p>
-        <br>
       </div>
     </div>
   </div>
