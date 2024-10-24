@@ -8,7 +8,7 @@
     <!-- <meta name="description" content="DESCRIPTION META TAG"> -->
 
     <meta property='og:title' content='Mitigating Compositional Issues in Text-to-Image Generative Models via Enhanced Text Embeddings. arXiv 2024.'/>
-    <meta property='og:url' content='https://github.com/ArmanZarei/Mitigating-T2I-Comp-Issues'/>
+    <meta property='og:url' content='https://github.com/samyadeepbasu/LocoGen'/>
     <meta property="og:image" content="static/images/banner.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -22,7 +22,7 @@
     <!-- <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Mitigating Compositional Issues in Text-to-Image Generative Models via Enhanced Text Embeddings</title>
+    <title>On Mechanistic Knowledge Localization in Text-to-Image Generative Models</title>
 
     <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
     rel="stylesheet">
@@ -54,44 +54,47 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-2 publication-title">Mitigating Compositional Issues in Text-to-Image Generative Models via Enhanced Text Embeddings</h1>
+          <h1 class="title is-2 publication-title">On Mechanistic Knowledge Localization in Text-to-Image Generative Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
-              <a href="https://armanzarei.github.io/">Arman Zarei</a><sup>*</sup>,</span>
+              <a href="https://samyadeepbasu.github.io">Samyadeep Basu</a><sup>*</sup><sup>1</sup>,</span>
             </span>
             <span class="author-block">
-              <a href="https://k1rezaei.github.io/">Keivan Rezaei</a><sup>*</sup>,
-            </span>
-            <span class="author-block">
-              <a href="https://samyadeepbasu.github.io">Samyadeep Basu</a>,
+              <a href="https://k1rezaei.github.io/">Keivan Rezaei</a><sup>*</sup><sup>1</sup>,
             </span>
             <br>
             <span class="author-block">
-              <a href="https://mehrdadsaberi.github.io">Mehrdad Saberi</a>,
+              <a href="https://priyathamkat.com">Priyatham Kattakinda</a><sup>1</sup>,
             </span>
             <span class="author-block">
-              <a href="https://sites.google.com/umd.edu/mazdamoayeri">Mazda Moayeri</a>,
+              <a href="http://ryanrossi.com/">Ryan Rossi</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://priyathamkat.com">Priyatham Kattakinda</a>,
+              <a href="https://sites.google.com/umd.edu/mazdamoayeri">Cherry Zhao</a><sup>2</sup>,
             </span>
             <span class="author-block">
-              <a href="https://www.cs.umd.edu/~sfeizi/">Soheil Feizi</a>
+              <a href="https://research.adobe.com/person/vlad-morariu/">Vlad Morariu</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://research.adobe.com/person/varun-manjunatha/">Varun Manjunatha</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cs.umd.edu/~sfeizi/">Soheil Feizi</a><sup>1</sup>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
-            <span class="author-block">Department of Computer Science, University of Maryland</span>
+            <span class="author-block"><sup>1 </sup>University of Maryland</span>&nbsp; &nbsp; <span class="author-block"><sup>2 </sup>Adobe Research</span>
           </div>
 
           <div class="is-size-5 publication-venue">
-            arXiv Preprint
+            Proceedings of the 41st International Conference on Machine Learning<br>ICML 2024
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2406.07844"
+                <a href="https://proceedings.mlr.press/v235/basu24b.html"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -100,7 +103,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2406.07844"
+                <a href="https://arxiv.org/html/2405.01008v2"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -110,7 +113,7 @@
               </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href="https://github.com/ArmanZarei/Mitigating-T2I-Comp-Issues"
+                <a href="https://github.com/samyadeepbasu/LocoGen/tree/main"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -148,14 +151,18 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Text-to-image diffusion-based generative models have the stunning ability to generate photo-realistic images and achieve state-of-the-art low FID scores on challenging image generation benchmarks.
-            However, one of the primary failure modes of these text-to-image generative models is in composing attributes, objects, and their associated relationships accurately into an image.
-            In our paper, we investigate this compositionality-based failure mode and highlight that imperfect text conditioning with CLIP text-encoder is one of the primary reasons behind the inability of these models to generate high-fidelity compositional scenes.
-            In particular, we show that (i) there exists an optimal text-embedding space that can generate highly coherent compositional scenes showing that the output space of the CLIP text-encoder is sub-optimal,
-            and (ii) the final token embeddings in CLIP are erroneous as they often include attention contributions from unrelated tokens in compositional prompts.
-            Our main finding shows that the best compositional improvements can be achieved (without harming the model's FID score) by fine-tuning <i>it only</i> a simple and parameter-efficient linear projection on CLIP's representation space in Stable-Diffusion variants using a small set of compositional image-text pairs.
-            This result demonstrates that the sub-optimality of the CLIP's output space is a major error source.
-            We also show that re-weighting the erroneous attention contributions in CLIP can lead to slightly improved compositional performances.
+            Identifying layers within text-to-image models which control visual attributes can facilitate efficient model editing through closed-form updates.
+            Recent work, leveraging causal tracing show that early Stable-Diffusion variants confine knowledge primarily to the first layer of the CLIP text-encoder,
+            while it diffuses throughout the UNet.
+            Extending this framework, we observe that for recent models (e.g., SD-XL, DeepFloyd), causal tracing fails in pinpointing localized knowledge,
+            highlighting challenges in model editing.
+            To address this issue, we introduce the concept of <i>mechanistic localization</i> in text-to-image models,
+            where knowledge about various visual attributes (e.g., "style", "objects", "facts") can be <i>mechanistically</i> localized
+            to a small fraction of layers in the UNet, thus facilitating efficient model editing.
+            We localize knowledge using our method <span style="font-variant: small-caps;">LocoGen</span> which measures the direct effect of intermediate layers to output generation by performing interventions in the cross-attention layers of the UNet. 
+            We then employ <span style="font-variant: small-caps;">LocoEdit</span>, a fast closed-form editing method across popular open-source text-to-image models (including the latest SD-XL)
+            and explore the possibilities of neuron-level model editing.
+            Using <i>mechanistic localization</i>, our work offers a better view of successes and failures in localization-based text-to-image model editing.
           </p>
         </div>
       </div>
@@ -514,11 +521,13 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title"><a id="bibtex">BibTeX</a></h2>
-    <pre><code>@article{zarei2024understanding,
-      title={Understanding and Mitigating Compositional Issues in Text-to-Image Generative Models},
-      author={Zarei, Arman and Rezaei, Keivan and Basu, Samyadeep and Saberi, Mehrdad and Moayeri, Mazda and Kattakinda, Priyatham and Feizi, Soheil},
-      journal={arXiv preprint arXiv:2406.07844},
-      year={2024}
+    <pre><code>
+      @inproceedings{basu2024mechanistic,
+        title={On Mechanistic Knowledge Localization in Text-to-Image Generative Models},
+        author={Basu, Samyadeep and Rezaei, Keivan and Kattakinda, Priyatham and Morariu, Vlad I and Zhao, Nanxuan and Rossi, Ryan A and Manjunatha, Varun and Feizi, Soheil},
+        booktitle={Forty-first International Conference on Machine Learning},
+        year={2024}
+      }
 }</code></pre>
   </div>
 </section>
