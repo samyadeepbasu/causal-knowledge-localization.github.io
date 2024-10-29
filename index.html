@@ -261,7 +261,7 @@
       
         <br>
 
-        <h3 class="title is-4"><span style="font-variant: small-caps;">Causal Tracing</span> find localized layers in text-encoder</h3>
+        <h3 class="title is-4"><span style="font-variant: small-caps;">Causal Tracing</span> finds localized layers in text-encoder</h3>
         <div class="content has-text-centered">
           <img src="./static/images/fig2.png" width="60%">
         </div>
@@ -406,28 +406,24 @@
     <!-- Latent space editing applications -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered"><span style="font-variant: small-caps;">LocoEdit</span> effectively edits the model!</h2>
+        <h2 class="title is-3 has-text-centered">We introduce<span style="font-variant: small-caps;">DiffQuickFix</span> which effectively edits the model!</h2>
         
         <!-- Prompt Interpolation image -->
         <!-- <h3 class="title is-4">Source (i): Errorneous Attention Contributions in CLIP Text Encoder</h3> -->
         
         <div class="content has-text-centered">
-            <img src="./static/images/locoedit/locoedit.jpg" width="100%">
+            <img src="./static/images/fig3.jpg" width="100%">
         </div>
         <div class="content has-text-justified">
         <p>
-          <span style="font-variant: small-caps;">LocoGen</span> extracts the set of cross-attention layers that control specific visual attributes (e.g., style).
-          We refer to this set as C_<sub>loc</sub>, a subset of cross-attention layers from which the knowledge about these attributes is influenced.
-          Each layer contains value and key matrices, and the goal is to modify these matrices in a way that transforms the attention mechanism input
-          from an original prompt (such as “A house in the style of Van Gogh”) to a target prompt (such as “A house in the style of a painting”).
-          This adjustment affects how the visual attribute appears in the generated image.
+          <span style="font-variant: small-caps;">DiffQuickFix</span> edits the projection weights of the first self-attention layer in the CLIP text-encoder to remove knowledge. Checkout our paper for the closed-form editing method!
 
           </p>
         </div>
 
         <!-- Prompt Interpolation image -->
         <div class="content has-text-centered">
-            <img src="./static/images/locoedit/formula.png" width="50%">
+            <img src="./static/images/fig3.png" width="50%">
         </div>
         <div class="content has-text-justified">
           <p>
@@ -447,28 +443,7 @@
       </div>
     </div>
   
-  <div class="columns is-centered">
-    <div class="column is-full-width">
-      <h2 class="title is-3 has-text-centered">Zero-Shot Model Editing is Possible!</h2>
-      
-      <!-- Prompt Interpolation image -->
-      <!-- <h3 class="title is-4">Source (i): Errorneous Attention Contributions in CLIP Text Encoder</h3> -->
-      
-      <div class="content has-text-centered">
-          <img src="./static/images/zero_shot/zero_shot.jpg" width="50%">
-      </div>
-      <div class="content has-text-justified">
-        <p>
-        As seen in above Figure,
-        neuron-level modification at inference time is effective at removing styles.
-        This shows that knowledge about a particular style can be even more localized to a few neurons.
-        It is noteworthy that the extent of style removal increases with the modification of more neurons, albeit with a trade-off in the quality of generated images.
-        This arises because modified neurons may encapsulate information related to other visual attributes.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+  
   
     <!--/ Matting. -->
     <!-- <div class="container is-max-desktop">
